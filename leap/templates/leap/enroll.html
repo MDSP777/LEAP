@@ -1,0 +1,16 @@
+{% if classes %}
+<form action="{% url 'leap:submit_enrollment' %}" method="post">
+	{% csrf_token %}
+	ID Number: <input type="text" name="id_number"/><br/>
+	Full Name: <input type="text" name="full_name"/><br/>
+	Mobile Number: <input type="text" name="mobile_no"/><br/>
+	Class Name: <select>
+		{% for class in classes %}
+		<option value='{{ class.classCode }}'>{{ class.className }}</option>
+		{% endfor %}
+	</select><br/>
+	<input type="submit"/>
+</form>
+{% else %}
+Cannot enroll, no classes available.
+{% endif %}

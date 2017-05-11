@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<style>
+		table {
+		    font-family: arial, sans-serif;
+		    border-collapse: collapse;
+		    width: 100%;
+		}
+
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+		}
+
+		tr:nth-child(even) {
+		    background-color: #dddddd;
+		}
+		</style>
+	</head>
+
+	<body>
+		{% if classes %}
+		<table>
+			<tr>
+				<th>Class Code</th>
+				<th>Class Name</th>
+				<th>Capacity</th>
+				<th>Free Slots</th>
+			</tr>
+			{% for class in classes %}
+			<tr>
+			<td>
+				<a href="{% url 'leap:view_single' class.id %}">
+				{{ class.classCode }}
+				</a>
+			</td>
+			<td>{{ class.className }}</td>
+			<td>{{ class.capacity }}</td>
+			<td>{{ class.freeSlots }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+		No classes entered.
+		{% endif %}	
+	</body>
+</html>

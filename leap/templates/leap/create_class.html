@@ -1,0 +1,7 @@
+<form action="{% url 'leap:submit_created_class' %}" method="post">	
+	{% csrf_token %}
+	Class Code: <input type="text" name="class_code"/><br/>
+	Class Name: <input type="text" name="class_name"/><br/>
+	Capacity: <input type="text" name="capacity"/><br/>
+	<input type="submit"/>
+</form>
